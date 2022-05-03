@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>   
+    <link rel="stylesheet" href="style/style.css">
+    <title>magazia</title>
+</head>
+<body>
+    <center>
+    <h1>choose number of your product(max is 3)</h1>
+
+    <input id="show">
+    <button onclick="ricxvisShemowmeba()">check</button>
+
+    <p id="stepfirst"> </p>
+
+    <script>
+        function ricxvisShemowmeba(){
+            const message = document.getElementById("stepfirst");
+            message.innerHTML = "";
+            let ricxvi = document.getElementById("show").value;
+
+            try{
+                if (ricxvi == "") throw "type number";
+                if (ricxvi < 0) throw "choose real number";
+                if (ricxvi > 3) throw "choose below 3";
+                if (ricxvi = 3) throw "nice choice";
+            }
+            catch (error) {
+                message.innerHTML = error;
+            }
+
+
+            finally{
+                document.getElementById("show").value ="";
+            }
+
+
+        }
+    </script>
+    
+    <p id="stepsecond"></p>
+
+    <script>
+        let productData = '{"produqtebi":[' +
+        '{"dasaxeleba":"მაგიდა","fasi":"1200" },' +
+        '{"dasaxeleba":"ტელევიზორი","fasi":"1500" },' +
+        '{"dasaxeleba":"მაცივარი","fasi":"1100" },'+
+        '{"dasaxeleba":"გაზქურა","fasi":"700" },'+
+        '{"dasaxeleba":"ლეპტოპი","fasi":"2000" }]}';
+    
+       const obj = JSON.parse(productData);
+
+    document.getElementById("stepsecond").innerHTML =  "saxeli" + obj.produqtebi[1].dasaxeleba + " " + obj.produqtebi[1].fasi;
+
+
+
+   
+    </script>
+        <form>
+            <label for="1">1st product</label><br>
+            <input type="text"  name="1" value=""><br>
+            <label for="2">2nd product</label><br>
+            <input type="text" name="lname" value="">
+            <label for="3">3rd product</label><br>
+            <input type="text" id="lname" name="lname" value="">
+        </form>
+    </center>
+</body>
+</html>
